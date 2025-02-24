@@ -8,11 +8,11 @@ export default function SaveTheDate() {
     <div>
       <Image
         src="/sesja.jpg"
+        width={1820}
+        height={1080}
         alt="Wedding background"
-        layout="fill"
-        // objectFit="background"
         quality={100}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 w-auto"
       />
       <div className="relative z-10 flex min-h-screen items-center justify-center py-2 lg:px-8 lg:py-6">
         <div className="w-full max-w-xl">
@@ -38,7 +38,7 @@ export default function SaveTheDate() {
                 </div>
                 <Button
                   variant="outline"
-                  className="text-main hover:bg-main mt-3 bg-white px-6 py-3 text-lg hover:text-rose"
+                  className="text-main hover:bg-main mt-3 bg-white px-3 py-3 text-lg hover:text-rose"
                 >
                   <Link
                     target="_blank"
@@ -63,7 +63,7 @@ export default function SaveTheDate() {
                 </p>
               </div>
               <div className="mt-8 space-y-2 sm:space-y-6">
-                <div className="flex items-center gap-2 rounded-lg bg-beige/80 p-2 lg:gap-6 lg:p-6">
+                <div className="flex items-center gap-2 rounded-lg bg-beige/60 p-2 lg:gap-6 lg:p-6 hover:bg-gold/90 transition">
                   <Church className="text-main h-8 w-8 flex-shrink-0 lg:h-12 lg:w-12" />
                   <div>
                     <h3 className="text-main text-xl font-semibold lg:text-xl">Ceremonia</h3>
@@ -75,7 +75,7 @@ export default function SaveTheDate() {
                     </Link>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 rounded-lg bg-beige/80 p-2 lg:gap-6 lg:p-6">
+                <div className="flex items-center gap-2 rounded-lg bg-beige/60 p-2 lg:gap-6 lg:p-6 hover:bg-gold/90 transition">
                   <Cake className="text-main h-8 w-8 flex-shrink-0 lg:h-12 lg:w-12" />
                   <div>
                     <h3 className="text-main text-xl font-semibold lg:text-xl">

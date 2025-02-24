@@ -49,6 +49,7 @@ export default function OrganizationalInfo() {
           ))}
         </div>
       </div>
+
     </div>
   );
 }

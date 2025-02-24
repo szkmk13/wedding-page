@@ -1,5 +1,6 @@
 import { Phone, Facebook, Sparkles } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image";
 
 type ContactPerson = {
   role: string
@@ -58,9 +59,9 @@ export default function ContactFooter() {
           {contacts.map((contact, index) => (
             <div
               key={index}
-              className="group relative flex items-center gap-4 rounded-lg bg-beige/20 p-4 transition-all duration-300 hover:bg-beige/40"
+              className="group relative flex items-center gap-4 rounded-lg bg-beige/60 p-4 transition-all duration-300 hover:bg-rose/20"
             >
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-gold/20 transition-all duration-300 group-hover:bg-gold/30">
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-rose/60 transition-all duration-300 group-hover:bg-gold/60">
                 <span className="text-2xl font-bold text-main">{contact.name.charAt(0)}</span>
               </div>
               <div>
@@ -84,6 +85,15 @@ export default function ContactFooter() {
           ))}
         </div>
       </div>
+      <div className="flex items-center justify-center h-full w-full mt-6">
+  <Image
+    src="/ledon.svg"
+    alt="Ledon"
+    width={150}
+    height={150}
+    quality={100}
+  />
+</div>
     </div>
   )
 }
