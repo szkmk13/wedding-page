@@ -4,7 +4,7 @@ import Link from "next/link"
 type ContactPerson = {
   role: string
   name: string
-  contact: string
+  contact: string|null
 }
 
 export default function ContactFooter() {
@@ -22,12 +22,12 @@ export default function ContactFooter() {
     {
       role: "Świadkowa",
       name: "Marta Muża",
-      contact: "XXX XXX XXX",
+      contact: null
     },
     {
       role: "Świadek",
       name: "Karol Rynkowski",
-      contact: "XXX XXX XXX",
+      contact: null
     },
   ]
 
@@ -66,14 +66,15 @@ export default function ContactFooter() {
               <div>
                 <p className="text-sm text-gray-600">{contact.role}</p>
                 <p className="font-semibold text-main">{contact.name}</p>
-               
-                  <Link
+
+                {contact.contact &&  <Link
                     href={`tel:${contact.contact.replace(/\s/g, "")}`}
                     className="mt-1 flex items-center gap-2 text-gray-600 hover:text-main"
                   >
                     <Phone className="h-4 w-4" />
                     <span>{contact.contact}</span>
-                  </Link>
+                  </Link>}
+
                 
               </div>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 group-hover:opacity-100">

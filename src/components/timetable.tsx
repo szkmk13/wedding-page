@@ -86,7 +86,7 @@ const WeddingSchedule = () => {
             return (
               <tr 
                 key={index} 
-                className={index % 2 === 0 ? 'bg-pink-50' : 'bg-white'}
+                className={index % 2 === 0 ? 'bg-rose/20' : 'bg-beige/20'}
               >
                 <td className="py-2 px-1 md:py-4 md:px-4 w-8 md:w-16 text-center">
                   <Icon className="w-6 h-6 md:w-6 md:h-6 text-gray-600 inline" />

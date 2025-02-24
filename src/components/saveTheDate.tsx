@@ -1,4 +1,4 @@
-import { Calendar, Church, Cake, Heart } from "lucide-react";
+import { Calendar, Church, Cake, Heart, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./extendui/button";
@@ -16,12 +16,8 @@ export default function SaveTheDate() {
       />
       <div className="relative z-10 flex min-h-screen items-center justify-center py-2 lg:px-8 lg:py-6">
         <div className="w-full max-w-xl">
-          {" "}
-          {/* Increased max-width */}
           <div className="overflow-hidden rounded-lg bg-white/75 shadow-xl backdrop-blur-sm">
             <div className="bg-gold/70 px-4 py-6 sm:px-10 sm:py-6">
-              {" "}
-              {/* Increased padding */}
               <div className="text-center">
                 <h1 className="text-main text-3xl font-extrabold tracking-tight sm:text-5xl">
                   Zapisz datę
@@ -37,15 +33,13 @@ export default function SaveTheDate() {
                   />
                   <div className="text-main mt-4 flex items-center justify-center gap-3 text-xl font-medium">
                     <Calendar className="h-8 w-8" />
-                    <p>19.09.2025 | 16:00</p>
+                    <p>16:00</p>
                   </div>
                 </div>
                 <Button
                   variant="outline"
                   className="text-main hover:bg-main mt-3 bg-white px-6 py-3 text-lg hover:text-rose"
                 >
-                  {" "}
-                  {/* Increased button size */}
                   <Link
                     target="_blank"
                     href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20250919T140000Z%2F20250920T020000Z&details=Do%20zobaczenia&location=Karczma%20%C5%81ab%C4%99d%C5%BA%20Hotel%20Mazury%2C%20ul.%20Marsa%202%2C%2014-200%20I%C5%82awa%2C%20Polska&text=Wesele%20Wiktorii%20i%20Szymona%F0%9F%92%92"
@@ -58,39 +52,26 @@ export default function SaveTheDate() {
               </div>
             </div>
 
-            <div className="px-6 py-6 sm:px-10 sm:py-10">
-              {" "}
-              {/* Increased padding */}
+            <div className="px-4 py-4 sm:px-10 sm:py-10">
               <div className="text-center">
                 <h2 className="text-main text-2xl font-bold tracking-tight lg:text-4xl">
                   Wesele Wiki i Szymka
                 </h2>
-                {/* <Heart className="mx-auto mt-6 h-10 w-10 text-red-500" /> */}
                 <p className="text-l mx-auto mt-2 max-w-2xl text-gray-700 lg:mt-6 lg:text-xl">
-                  {" "}
-                  {/* Increased font size and max-width */}
                   Zapraszamy Cię do towarzyszenia nam w tym pięknym dniu, będzie
                   to dla nas bardzo ważne jeżeli przyjdziesz.
                 </p>
               </div>
               <div className="mt-8 space-y-2 sm:space-y-6">
-                {" "}
-                {/* Increased spacing */}
-                <div className="flex items-center gap-2 rounded-lg bg-beige/80 p-2 sm:gap-6 lg:p-4">
-                  {" "}
-                  {/* Increased padding and gap */}
+                <div className="flex items-center gap-2 rounded-lg bg-beige/80 p-2 lg:gap-6 lg:p-6">
                   <Church className="text-main h-8 w-8 flex-shrink-0 lg:h-12 lg:w-12" />
                   <div>
-                    <h3 className="text-main text-xl font-semibold lg:text-xl">
-                      Ceremonia
-                    </h3>{" "}
-                    {/* Increased font size */}
+                    <h3 className="text-main text-xl font-semibold lg:text-xl">Ceremonia</h3>
                     <Link
                       href="https://maps.app.goo.gl/pxnR21dtu5NY3JMr8"
                       className="text-m hover:text-main mt-2 block text-gray-700 lg:text-lg"
                     >
-                      Kościół Rzymskokatolicki pw. Trójcy Przenajświętszej,
-                      Frednowy 14-204
+                      Kościół Rzymskokatolicki pw. Trójcy Przenajświętszej, Frednowy 14-204
                     </Link>
                   </div>
                 </div>
