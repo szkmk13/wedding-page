@@ -11,7 +11,10 @@ import {
   Gift,
   Coffee,
   Timer,
-  Church
+  Church,
+  BookOpen,
+  Car,
+  Soup
 } from 'lucide-react';
 
 const WeddingSchedule = () => {
@@ -24,15 +27,15 @@ const WeddingSchedule = () => {
     {
       icon: Church,
       time: "16:00",
-      activity: "Start dystansu długiego (start ceremonii ślubnej)"
+      activity: "Start zawodników kategorii ELITE (start ceremonii ślubnej)"
     },
     {
-      icon: Building,
+      icon: Car,
       time: "17:15",
-      activity: "Otwarcie biura zawodów (przyjazd na salę weselną)"
+      activity: "Pierwsi zawodnicy w strefie zmian (przyjazd na salę weselną)"
     },
     {
-      icon: Heart,
+      icon: BookOpen,
       time: "17:30",
       activity: "Odprawa techniczna (składanie życzeń Parze Młodej)"
     },
@@ -49,22 +52,22 @@ const WeddingSchedule = () => {
     {
       icon: Camera,
       time: "21:00",
-      activity: " (zdjęcia z Parą Młodą)"
+      activity: "Pamiątkowe zdjęcia z najlepszymi zawodnikami (Parą Młodą)"
     },
     {
       icon: Cake,
       time: "23:00",
-      activity: " (tort)"
+      activity: "Punkt żywieniowy II (tort)"
     },
     {
       icon: Crown,
       time: "00:00",
-      activity: "Deokracja najlepszych zawodników (oczepiny)"
+      activity: "Dekoracja najlepszych zawodników (oczepiny)"
     },
     {
-      icon: Coffee,
+      icon: Soup,
       time: "01:00",
-      activity: "Punkt żywieniowy II (ciepły barszcz)"
+      activity: "Posiłek regeneracyjny (ciepły barszcz)"
     },
     {
       icon: Timer,
@@ -85,17 +88,18 @@ const WeddingSchedule = () => {
                 key={index} 
                 className={index % 2 === 0 ? 'bg-pink-50' : 'bg-white'}
               >
-                <td className="py-4 px-4 w-16 align-top">
-                  <Icon className="w-6 h-6 text-gray-600" />
+                <td className="py-2 px-1 md:py-4 md:px-4 w-8 md:w-16 text-center">
+                  <Icon className="w-6 h-6 md:w-6 md:h-6 text-gray-600 inline" />
                 </td>
-                <td className="py-4 px-4 w-32 align-top font-medium">
+                <td className="py-2 px-1 md:py-4 md:px-4 w-16 md:w-32 font-medium text-sm md:text-base whitespace-nowrap text-center">
                   {item.time}
                 </td>
-                <td className="py-4 px-4 align-top">
+                <td className="py-2 px-1 md:py-4 md:px-4 text-sm md:text-base leading-tight md:leading-normal">
                   {item.activity}
                 </td>
               </tr>
-            )})}
+            )
+          })}
         </tbody>
       </table>
     </div>

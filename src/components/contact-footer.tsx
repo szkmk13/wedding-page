@@ -5,34 +5,29 @@ type ContactPerson = {
   role: string
   name: string
   contact: string
-  type: "phone" | "facebook"
 }
 
 export default function ContactFooter() {
   const contacts: ContactPerson[] = [
     {
       role: "Panna młoda",
-      name: "Wiktoria",
+      name: "Wiktoria Kwiatkowska",
       contact: "XXX XXX XXX",
-      type: "phone",
     },
     {
       role: "Pan młody",
-      name: "Szymon",
+      name: "Szymon Kowalski",
       contact: "XXX XXX XXX",
-      type: "phone",
     },
     {
       role: "Świadkowa",
-      name: "Marta",
+      name: "Marta Muża",
       contact: "XXX XXX XXX",
-      type: "phone",
     },
     {
       role: "Świadek",
-      name: "Karol",
+      name: "Karol Rynkowski",
       contact: "XXX XXX XXX",
-      type: "phone",
     },
   ]
 
@@ -40,13 +35,16 @@ export default function ContactFooter() {
     <div className="relative w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:px-6 sm:py-12 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -right-4 top-1/4 transform rotate-12 opacity-60">
-          <Sparkles className="w-24 h-24 text-gold animate-pulse" />
+        <div className="absolute right-1 top-1/4 transform rotate-12 opacity-60">
+          <Sparkles className="w-24 h-24 text-rose animate-pulse" />
         </div>
         <div className="absolute left-4 bottom-1/4 transform -rotate-12 opacity-60">
-          <Sparkles className="w-16 h-16 text-beige animate-pulse" />
+          <Sparkles className="w-16 h-16 text-rose animate-pulse" />
         </div>
         <div className="absolute right-1/4 bottom-8 transform rotate-45 opacity-60">
+          <Sparkles className="w-20 h-20 text-rose animate-pulse" />
+        </div>
+        <div className="absolute left-1/3 bottom-64 transform rotate-45 opacity-60">
           <Sparkles className="w-20 h-20 text-rose animate-pulse" />
         </div>
       </div>
@@ -68,7 +66,7 @@ export default function ContactFooter() {
               <div>
                 <p className="text-sm text-gray-600">{contact.role}</p>
                 <p className="font-semibold text-main">{contact.name}</p>
-                {contact.type === "phone" ? (
+               
                   <Link
                     href={`tel:${contact.contact.replace(/\s/g, "")}`}
                     className="mt-1 flex items-center gap-2 text-gray-600 hover:text-main"
@@ -76,17 +74,7 @@ export default function ContactFooter() {
                     <Phone className="h-4 w-4" />
                     <span>{contact.contact}</span>
                   </Link>
-                ) : (
-                  <Link
-                    href={contact.contact}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-1 flex items-center gap-2 text-gray-600 hover:text-main"
-                  >
-                    <Facebook className="h-4 w-4" />
-                    <span>Facebook</span>
-                  </Link>
-                )}
+                
               </div>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 group-hover:opacity-100">
                 <Sparkles className="h-5 w-5 text-gold" />
