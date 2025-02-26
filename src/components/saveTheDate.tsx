@@ -1,4 +1,4 @@
-import { Calendar, Church, Cake, Heart, MapPin } from "lucide-react";
+import { Calendar, Church, Cake, Heart, MapPin, Clock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./extendui/button";
@@ -8,16 +8,16 @@ export default function SaveTheDate() {
     <div>
       <Image
         src="/sesja.jpg"
-        width={1820}
-        height={1080}
+        layout="fill" // Makes the image cover the entire container
+        objectFit="cover" // Ensures the image covers the whole area without distortion
         alt="Wedding background"
         quality={100}
-        className="absolute inset-0 z-0 w-auto"
+        className="absolute inset-0 z-0"
       />
       <div className="relative z-10 flex min-h-screen items-center justify-center py-2 lg:px-8 lg:py-6">
         <div className="w-full max-w-xl">
           <div className="overflow-hidden rounded-lg bg-white/75 shadow-xl backdrop-blur-sm">
-            <div className="bg-gold/70 px-4 py-6 sm:px-10 sm:py-6">
+            <div className="bg-gold/60 px-4 py-6 sm:px-10 sm:py-6">
               <div className="text-center">
                 <h1 className="text-main text-3xl font-extrabold tracking-tight sm:text-5xl">
                   Zapisz datę
@@ -32,13 +32,13 @@ export default function SaveTheDate() {
                     className="inset-0 z-0"
                   />
                   <div className="text-main mt-4 flex items-center justify-center gap-3 text-xl font-medium">
-                    <Calendar className="h-8 w-8" />
+                    <Clock className="h-8 w-8" />
                     <p>16:00</p>
                   </div>
                 </div>
                 <Button
                   variant="outline"
-                  className="text-main hover:bg-main mt-3 bg-white px-3 py-3 text-lg hover:text-rose"
+                  className="text-main hover:bg-main mt-3 border-black/30 bg-rose-100 px-3 py-3 text-lg transition-shadow hover:shadow-lg"
                 >
                   <Link
                     target="_blank"
@@ -63,25 +63,30 @@ export default function SaveTheDate() {
                 </p>
               </div>
               <div className="mt-8 space-y-2 sm:space-y-6">
-                <div className="flex items-center gap-2 rounded-lg bg-beige/60 p-2 lg:gap-6 lg:p-6 hover:bg-gold/90 transition">
+                <div className="flex items-center gap-2 rounded-lg bg-beige/70 p-2 transition hover:bg-gold/90 lg:gap-6 lg:p-6">
                   <Church className="text-main h-8 w-8 flex-shrink-0 lg:h-12 lg:w-12" />
                   <div>
-                    <h3 className="text-main text-xl font-semibold lg:text-xl">Ceremonia</h3>
+                    <h3 className="text-main text-xl font-semibold lg:text-xl">
+                      Ceremonia
+                    </h3>
                     <Link
+                      target="_blank"
                       href="https://maps.app.goo.gl/pxnR21dtu5NY3JMr8"
                       className="text-m hover:text-main mt-2 block text-gray-700 lg:text-lg"
                     >
-                      Kościół Rzymskokatolicki pw. Trójcy Przenajświętszej, Frednowy 14-204
+                      Kościół Rzymskokatolicki pw. Trójcy Przenajświętszej,
+                      Frednowy 14-204
                     </Link>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 rounded-lg bg-beige/60 p-2 lg:gap-6 lg:p-6 hover:bg-gold/90 transition">
+                <div className="flex items-center gap-2 rounded-lg bg-beige/70 p-2 transition hover:bg-gold/90 lg:gap-6 lg:p-6">
                   <Cake className="text-main h-8 w-8 flex-shrink-0 lg:h-12 lg:w-12" />
                   <div>
                     <h3 className="text-main text-xl font-semibold lg:text-xl">
                       Przyjęcie
                     </h3>
                     <Link
+                      target="_blank"
                       href="https://maps.app.goo.gl/HmiEkEYh4WYX5ZNy6"
                       className="text-m hover:text-main mt-2 block text-gray-700 lg:text-lg"
                     >

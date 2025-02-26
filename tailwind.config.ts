@@ -19,7 +19,7 @@ export default {
   		},
   		colors: {
 			beige: '#eedcb9',
-			rose: '#e29c9c',
+			// rose: '#e29c9c',
 			gold: '#fdedc6',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

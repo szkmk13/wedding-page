@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MapPin, Users, Car, ChevronDown } from "lucide-react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import Link from "next/link"
 
 const DefaultIcon = L.icon({
   iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
@@ -17,6 +18,8 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function DirectionsMap() {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [leafletReady, setLeafletReady] = useState(false); // State to track when Leaflet is ready
+
 
   const churchPosition = { lat: 53.65597270827541, lng: 19.689803565103066 };
   const venuePosition = { lat: 53.61228235756263, lng: 19.612065854335807 };
@@ -25,19 +28,11 @@ export default function DirectionsMap() {
     lng: (churchPosition.lng + venuePosition.lng) / 2,
   };
 
-  const openGoogleMaps = (place: "church" | "venue") => {
-    const urls = {
-      church: "https://maps.app.goo.gl/w58DM2hLzYZCTzf1A",
-      venue: "https://maps.app.goo.gl/wsmcBgkxCChmy33j6",
-    };
-    setShowDropdown(false);
-    window.open(urls[place], "_blank");
-  };
 
   return (
     <div className="w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
       <div className="mx-auto max-w-3xl">
-        <h2 className="text-rose-700 mb-8 text-center text-3xl font-bold tracking-tight sm:text-4xl">
+        <h2 className=" mb-8 text-center text-3xl font-bold tracking-tight sm:text-4xl">
           Jak dojechać?
         </h2>
         <div className="mb-8 overflow-hidden rounded-lg bg-beige/90 shadow-lg">
@@ -77,18 +72,20 @@ export default function DirectionsMap() {
 
             {showDropdown && (
               <div className="absolute mt-2 w-full rounded-lg bg-beige/40 shadow-lg">
-                <button
-                  onClick={() => openGoogleMaps("church")}
+                <Link
+                  target="_blank"
+                  href="https://maps.app.goo.gl/pxnR21dtu5NY3JMr8"
                   className="block w-full px-4 py-2 text-left hover:bg-gold/60"
                 >
                   Kościół
-                </button>
-                <button
-                  onClick={() => openGoogleMaps("venue")}
+                </Link>
+                <Link
+                  target="_blank"
+                  href="https://maps.app.goo.gl/HmiEkEYh4WYX5ZNy6"
                   className="block w-full px-4 py-2 text-left hover:bg-gold/60"
                 >
                   Sala Weselna
-                </button>
+                </Link>
               </div>
             )}
           </div>

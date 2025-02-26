@@ -40,7 +40,7 @@ export default function OrganizationalInfo() {
         <div className="grid gap-4 lg:gap-8 md:grid-cols-2">
           {infoItems.map((item, index) => (
             <div key={index} className="flex flex-col items-center text-center p-2 lg:p-6 rounded-lg bg-gold/60">
-              <div className={`rounded-full bg-rose/60 p-4 mb-4`}>
+              <div className={`rounded-full bg-rose-200 p-4 mb-4`}>
                 <item.icon className="h-8 w-8 text-main" />
               </div>
               <h3 className="font-semibold text-xl text-main mb-2">{item.title}</h3>
