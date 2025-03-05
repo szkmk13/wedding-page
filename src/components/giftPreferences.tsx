@@ -37,8 +37,8 @@ export default function WeddingGifts() {
             <Users size={64}  />
           </div>
         </div>
-        <p className="italic font-bold">Dzień bez przyjaciela jest jak dzbanek, w którym nie ma nawet kropelki miodu</p>
-        <p>Dlatego Wasza obecność to najcenniejszy dar!</p>
+        <p className="italic font-bold">„Kochać to chcieć przemierzyć cały świat we dwoje, po to, by nie było miejsca na Ziemi wolnego od wspólnych wspomnień”.</p>
+        <p>Ernest Hemingway</p>
       </div>
     </div>
   );

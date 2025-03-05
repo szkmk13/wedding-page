@@ -1,60 +1,26 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { MapPin, Users, Car, ChevronDown } from "lucide-react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import Link from "next/link"
+import dynamic from "next/dynamic";
 
-const DefaultIcon = L.icon({
-  iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+import Link from "next/link";
+const Map = dynamic(() => import("../app/_components/map"), {
+  ssr: false,
+  loading: () => <div>Ładowanie...</div>,
 });
-L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function DirectionsMap() {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [leafletReady, setLeafletReady] = useState(false); // State to track when Leaflet is ready
-
-
-  const churchPosition = { lat: 53.65597270827541, lng: 19.689803565103066 };
-  const venuePosition = { lat: 53.61228235756263, lng: 19.612065854335807 };
-  const centerPosition = {
-    lat: (churchPosition.lat + venuePosition.lat) / 2,
-    lng: (churchPosition.lng + venuePosition.lng) / 2,
-  };
-
 
   return (
     <div className="w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
       <div className="mx-auto max-w-3xl">
-        <h2 className=" mb-8 text-center text-3xl font-bold tracking-tight sm:text-4xl">
+        <h2 className="mb-8 text-center text-3xl font-bold tracking-tight sm:text-4xl">
           Jak dojechać?
         </h2>
         <div className="mb-8 overflow-hidden rounded-lg bg-beige/90 shadow-lg">
           <div className="h-64 sm:h-96">
-            <MapContainer
-              center={centerPosition}
-              zoom={12}
-              style={{ height: "100%", width: "100%" }}
-            >
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution="&copy; OpenStreetMap contributors"
-              />
-
-              <Marker position={venuePosition}>
-                <Popup>Sala Weselna - Tu się widzimy!</Popup>
-              </Marker>
-
-              <Marker position={churchPosition}>
-                <Popup>Kościół - Uroczystość zaślubin</Popup>
-              </Marker>
-            </MapContainer>
+            <Map />
           </div>
         </div>
 
