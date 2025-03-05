@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import 'leaflet/dist/leaflet.css';
 
 export default function Map() {
   const mapRef = useRef(null);
@@ -17,7 +18,6 @@ export default function Map() {
 
       try {
         // Importuj CSS i bibliotekę Leaflet
-        await import("leaflet/dist/leaflet.css");
         const L = await import("leaflet");
 
         // Konfiguracja domyślnej ikony
