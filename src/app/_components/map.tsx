@@ -85,7 +85,6 @@ export default function Map() {
     // Funkcja czyszcząca przy odmontowaniu komponentu
     return () => {
       if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove();
         mapInstanceRef.current = null;
       }
       mapInitializedRef.current = false;
