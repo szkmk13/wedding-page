@@ -1,8 +1,17 @@
 "use client";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Car } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
-import { Car, User } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -18,17 +27,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
-const signInSchema = z.object({
-  email: z.string().email({ message: "Invalid email address" }),
-  password: z
+const rideShareSchema = z.object({
+  origin: z.string().min(2, { message: "Podaj miejsce wyjazdu" }),
+  passengers: z
     .string()
-    .min(8, { message: "Password must be at least 8 characters" }),
+    .min(1, { message: "Podaj liczbę dostępnych miejsc" })
+    .max(1),
+  contact: z.string().min(5, { message: "Podaj dane kontaktowe" }),
+  consent: z.boolean().refine((val) => val === true, {
+    message: "Musisz wyrazić zgodę na kontakt",
+  }),
 });
 
-type SignInValues = z.infer<typeof signInSchema>;
-
-export default function SignIn02() {
+type RideShareValues = z.infer<typeof rideShareSchema>;
+export function RideShare() {
   const [isOpen, setIsOpen] = useState(false);
   const {
     register,
@@ -36,142 +51,129 @@ export default function SignIn02() {
     formState: { errors },
     setValue,
     watch,
-  } = useForm<SignInValues>({
-    resolver: zodResolver(signInSchema),
+    reset
+  } = useForm<RideShareValues>({
+    resolver: zodResolver(rideShareSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      origin: "",
+      passengers: "",
+      contact: "",
+      consent: false,
     },
   });
 
-  const emailValue = watch("email");
-  const passwordValue = watch("password");
+  const originValue = watch("origin");
+  const passengersValue = watch("passengers");
+  const contactValue = watch("contact");
+  const consentValue = watch("consent");
 
-  const onSubmit = (data: SignInValues) => {
-    toast.success(<pre>{JSON.stringify(data, null, 2)}</pre>);
+  const onSubmit = (data: RideShareValues) => {
+    console.log(data);
+    // toast.success(<pre>{JSON.stringify(data, null, 2)}</pre>);
+    reset()
+    setIsOpen(false)
   };
-
   return (
-    <motion.div
-      layout
-      animate={{
-        width: isOpen ? 360 : "auto",
-        height: isOpen ? 420 : "auto",
-        // borderRadius: isOpen ? 10 : 50,
-      }}
-      transition={{ duration: 0.7, ease: "easeInOut" }}
-      className="flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg shadow bg-gold/60 px-4 py-2 text-card-foreground text-gray-800 transition hover:bg-gold/90 sm:w-auto"
-    >
-      <AnimatePresence mode="wait">
-        {isOpen ? (
-          <motion.div
-            key="card"
-            initial={{ opacity: 0, scale: 0.75 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.75 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Card className="mx-auto max-w-sm border-none bg-transparent shadow-none">
-              <CardHeader>
-                <CardTitle className="text-center text-2xl">Login</CardTitle>
-                <CardDescription>
-                  Enter your email below to login to your account
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form
-                  onSubmit={handleSubmit(onSubmit)}
-                  className="space-y-4"
-                  autoComplete="off"
+<Dialog open={isOpen} onOpenChange={setIsOpen}>
+<DialogTrigger asChild>
+        <Button className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-gold/60 px-4 py-2 text-gray-800 shadow transition hover:bg-gold/90 sm:w-auto">
+          <Car className="h-6 w-6" />
+          Jadę i mam wolne miejsca
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogTitle></DialogTitle>
+        <DialogHeader>
+          <DialogDescription className="text-center">
+            Wypełnij formularz, aby inni goście mogli się z Tobą skontaktować.
+          </DialogDescription>
+        </DialogHeader>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-4"
+          autoComplete="off"
+        >
+          <div className="space-y-2">
+            <Input
+              id="origin"
+              type="string"
+              placeholder="Gdańsk"
+              {...register("origin")}
+              value={originValue}
+              onChange={(e) => setValue("origin", e.target.value)}
+            >
+              <Input.Group>
+                <Input.Label className={errors.origin ? "text-red-500" : ""}>
+                  Skąd jedziesz
+                </Input.Label>
+                <Input.ClearButton onClick={() => setValue("origin", "")} />
+              </Input.Group>
+            </Input>
+          </div>
+          <div className="space-y-2">
+            <Input
+              id="passengers"
+              type="number"
+              placeholder="3"
+              {...register("passengers")}
+              value={passengersValue}
+              onChange={(e) => setValue("passengers", e.target.value)}
+            >
+              <Input.Group>
+                <Input.Label
+                  className={errors.passengers ? "text-red-500" : ""}
                 >
-                  <div className="space-y-2">
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="m@example.com"
-                      {...register("email")}
-                      value={emailValue}
-                      onChange={(e) => setValue("email", e.target.value)}
-                    >
-                      <Input.Group>
-                        <Input.Label>Email</Input.Label>
-                        <Input.ClearButton
-                          onClick={() => setValue("email", "")}
-                        />
-                      </Input.Group>
-                    </Input>
-                    {errors.email && (
-                      <p className="text-sm text-red-500">
-                        {errors.email.message}
-                      </p>
-                    )}
-                  </div>
-                  <div className="space-y-2">
-                    <Input
-                      id="password"
-                      type={"password"}
-                      placeholder="Enter your password"
-                      {...register("password")}
-                      value={passwordValue}
-                      onChange={(e) => setValue("password", e.target.value)}
-                    >
-                      <Input.Group>
-                        <Input.Label>Password</Input.Label>
-                        <Input.ClearButton
-                          onClick={() => setValue("password", "")}
-                        />
-                        <Input.PasswordToggle />
-                      </Input.Group>
-                    </Input>
-                    {errors.password && (
-                      <p className="text-sm text-red-500">
-                        {errors.password.message}
-                      </p>
-                    )}
-                    <div className="flex items-center justify-end">
-                      <Link href="#" className="text-sm underline">
-                        Forgot your password?
-                      </Link>
-                    </div>
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Sign In
-                  </Button>
-                </form>
-                <Button variant="outline" className="mt-4 w-full">
-                  Login with Google
-                </Button>
-                <div className="mt-4 text-center text-sm">
-                  Don&apos;t have an account?{" "}
-                  <Link href="#" className="underline">
-                    Sign up
-                  </Link>
-                </div>
-                <Button
-                  className="mt-4 w-full"
-                  variant="ghost"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Close
-                </Button>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="button"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-            onClick={() => setIsOpen(true)}
-            className="flex w-full items-center justify-center gap-2 rounded-lg text-center"
+                  Ile osób możesz wziąć
+                </Input.Label>
+                <Input.ClearButton onClick={() => setValue("passengers", "")} />
+              </Input.Group>
+            </Input>
+          </div>
+          <div className="space-y-2">
+            <Input
+              id="contact"
+              type="string"
+              placeholder="123456789 / email@example.com / fb: jan kowalski"
+              {...register("contact")}
+              value={contactValue}
+              onChange={(e) => setValue("contact", e.target.value)}
+            >
+              <Input.Group>
+                <Input.Label className={errors.contact ? "text-red-500" : ""}>
+                  Kontakt do Ciebie
+                </Input.Label>
+                <Input.ClearButton onClick={() => setValue("contact", "")} />
+              </Input.Group>
+            </Input>
+          </div>
+          <div className="space-y-2">
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="consent"
+                checked={consentValue}
+                onCheckedChange={(checked) =>
+                  setValue("consent", checked as boolean)
+                }
+                {...register("consent")}
+              />
+              <Label
+                htmlFor="consent"
+                className={`text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${
+                  errors.consent ? "text-red-500" : ""
+                }`}
+              >
+                Wyrażam zgodę na kontakt w sprawie przejazdu
+              </Label>
+            </div>
+          </div>
+          <Button
+            type="submit"
+            className="w-full bg-rose-200 text-black hover:bg-none"
           >
-            <Car className="h-6 w-6" />
-            Jadę i mam wolne miejsca
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+            Opublikuj przejazd
+          </Button>
+        </form>
+      </DialogContent>
+    </Dialog>
   );
 }

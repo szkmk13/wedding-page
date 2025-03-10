@@ -6,14 +6,14 @@ import { Button } from "./extendui/button";
 export default function SaveTheDate() {
   return (
     <div>
-      <Image
+      {/* <Image
         src="/sesja.jpg"
         layout="fill" // Makes the image cover the entire container
         objectFit="cover" // Ensures the image covers the whole area without distortion
         alt="Wedding background"
         quality={100}
         className="absolute inset-0 z-0"
-      />
+      /> */}
       <div className="relative z-10 flex min-h-screen items-center justify-center py-2 lg:px-8 lg:py-6">
         <div className="w-full max-w-xl">
           <div className="overflow-hidden rounded-lg bg-white/75 shadow-xl backdrop-blur-sm">
