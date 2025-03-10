@@ -1,10 +1,7 @@
 "use client";
-import React, { useState, useEffect, Suspense } from "react";
-import { MapPin, Users, Car, ChevronDown } from "lucide-react";
-import dynamic from "next/dynamic";
+import React from "react";
+import {  Users } from "lucide-react";
 
-import Link from "next/link";
-import RideShareButton from "./extendui/rideButton";
 import { RideShare } from "./extendui/animatedSignIn";
 import { Button } from "./extendui/button";
 import { DropdownMenuDemo } from "./directions/directionsDropdown";
@@ -12,7 +9,6 @@ import { DropdownMenuDemo } from "./directions/directionsDropdown";
 //   ssr: false,
 // });
 export default function DirectionsMap() {
-  const [showDropdown, setShowDropdown] = useState(false);
   return (
     <div className="w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:px-6 sm:py-4">
       <div className="mx-auto max-w-3xl">

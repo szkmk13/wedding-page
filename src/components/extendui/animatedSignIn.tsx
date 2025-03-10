@@ -4,31 +4,20 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Car } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import * as z from "zod";
 
 import { Button } from "@/components/extendui/button";
 import { Input } from "@/components/extendui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { z } from "zod";
+import { Checkbox } from "@radix-ui/react-checkbox";
+import { useState } from "react";
 
 const rideShareSchema = z.object({
   origin: z.string().min(2, { message: "Podaj miejsce wyjazdu" }),
@@ -51,7 +40,7 @@ export function RideShare() {
     formState: { errors },
     setValue,
     watch,
-    reset
+    reset,
   } = useForm<RideShareValues>({
     resolver: zodResolver(rideShareSchema),
     defaultValues: {
@@ -70,12 +59,12 @@ export function RideShare() {
   const onSubmit = (data: RideShareValues) => {
     console.log(data);
     // toast.success(<pre>{JSON.stringify(data, null, 2)}</pre>);
-    reset()
-    setIsOpen(false)
+    reset();
+    setIsOpen(false);
   };
   return (
-<Dialog open={isOpen} onOpenChange={setIsOpen}>
-<DialogTrigger asChild>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
         <Button className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-gold/60 px-4 py-2 text-gray-800 shadow transition hover:bg-gold/90 sm:w-auto">
           <Car className="h-6 w-6" />
           Jadę i mam wolne miejsca
