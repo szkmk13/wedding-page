@@ -1,6 +1,6 @@
 'use client';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Check, Link, Loader, SendHorizonal, X } from 'lucide-react';
+import { Check, Loader, SendHorizonal, X } from 'lucide-react';
 import * as React from 'react';
 
 import { Button, type ButtonProps } from '@/components/extendui/button';

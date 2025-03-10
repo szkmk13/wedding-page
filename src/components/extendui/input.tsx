@@ -128,7 +128,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
     }), [children]);
 
     const generatedId = React.useId();
-    const inputId = id || generatedId;
+    const inputId = id ?? generatedId;
 
     const contextValue: InputContextType = {
       id: inputId,
@@ -148,7 +148,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       setShowPassword,
     };
 
-    const currentValue = String(value || '');
+    const currentValue = String(value ?? '');
     const hasValue = currentValue.length > 0;
     const counterPosition = getCounterPosition(elementChecks, hasValue);
     const labelPadding = getLabelPadding(elementChecks, hasValue, maxLength);
@@ -189,7 +189,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
               "absolute top-2.5 text-xs text-muted-foreground",
               counterPosition
             )}>
-              {String(value || '').length}/{maxLength}
+              {String(value ?? '').length}/{maxLength}
             </div>
           )}
           {error && textError && (
@@ -243,7 +243,7 @@ const InputLabel = React.forwardRef<
     'z-10 absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent ',
     elementChecks.hasLeftIcon ? 'left-9' : 'left-3',
     isFocused && 'font-medium',
-    (isFocused || value || (type === 'date') || placeholder) && [
+    (isFocused ?? value ?? (type === 'date') ?? placeholder) && [
       '-top-2.5  bg-background px-1 text-primary text-xs rounded-md',
       variant === 'flushed' || variant === 'flushedfilled'
         ? `-left-[7px] ps-2`

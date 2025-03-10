@@ -1,4 +1,4 @@
-import { Phone, Facebook, Sparkles } from "lucide-react";
+import { Phone, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 

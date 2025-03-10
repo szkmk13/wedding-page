@@ -1,4 +1,4 @@
-import { Car, BabyIcon as BabyOff, Hotel, Wine, TestTube } from "lucide-react";
+import { Car, BabyIcon as  Hotel, Wine, TestTube } from "lucide-react";
 
 const infoItems = [
   {
