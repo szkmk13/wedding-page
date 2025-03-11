@@ -38,6 +38,7 @@ export default function ContactFooter() {
   ];
 
   return (
+    // <div className="overflow-hidden rounded-lg bg-white/75 shadow-xl backdrop-blur-sm w-full">
     <div className="relative w-full overflow-hidden bg-white/90 px-4 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -113,5 +114,6 @@ export default function ContactFooter() {
         />
       </div>
     </div>
+    // </div> 
   );
 }

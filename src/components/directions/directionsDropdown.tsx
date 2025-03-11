@@ -20,7 +20,7 @@ export function DropdownMenuDemo() {
           <ChevronDown className="h-4 w-4 opacity-70" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <DropdownMenuContent className="w-56 bg-white">
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
             <Link

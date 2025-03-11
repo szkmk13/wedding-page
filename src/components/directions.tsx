@@ -10,9 +10,9 @@ import { DropdownMenuDemo } from "./directions/directionsDropdown";
 // });
 export default function DirectionsMap() {
   return (
-    <div className="w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:px-6 sm:py-4">
+    <div className="w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
       <div className="mx-auto max-w-3xl">
-        <h2 className="mb-8 text-center text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2 className="text-center text-3xl font-bold tracking-tight text-main sm:text-4xl mb-12">
           Jak dojechać?
         </h2>
 

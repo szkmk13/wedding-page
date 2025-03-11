@@ -3,10 +3,14 @@ import { GiftIcon, Wine, Mail, Flower2Icon, ArrowRight, Users } from 'lucide-rea
 
 export default function WeddingGifts() {
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white/90">
-      <div className="text-center mb-6">
-        <h2 className="text-3xl font-bold mb-2">Prezenty</h2>
-      </div>
+    // <div className="overflow-hidden rounded-lg bg-white/75 shadow-xl backdrop-blur-sm">
+    <div className="w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
+      <div className="mx-auto max-w-3xl">
+      <h2 className="text-center text-3xl font-bold tracking-tight text-main sm:text-4xl mb-12">
+      Prezenty
+      
+      </h2>
+      
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Kwiaty → Alkohol */}
@@ -40,6 +44,7 @@ export default function WeddingGifts() {
         <p className="italic font-bold">„Kochać to chcieć przemierzyć cały świat we dwoje, po to, by nie było miejsca na Ziemi wolnego od wspólnych wspomnień”.</p>
         <p>Ernest Hemingway</p>
       </div>
-    </div>
+    </div></div>
+    // </div>
   );
 }

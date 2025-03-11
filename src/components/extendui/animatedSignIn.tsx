@@ -92,7 +92,7 @@ export function RideShare() {
               onChange={(e) => setValue("origin", e.target.value)}
             >
               <Input.Group>
-                <Input.Label className={errors.origin ? "text-red-500" : ""}>
+                <Input.Label>
                   Skąd jedziesz
                 </Input.Label>
                 <Input.ClearButton onClick={() => setValue("origin", "")} />
