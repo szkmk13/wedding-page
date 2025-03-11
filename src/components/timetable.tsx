@@ -13,6 +13,8 @@ import {
   Soup,
 } from "lucide-react";
 
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+
 const WeddingSchedule = () => {
   const scheduleData = [
     {
@@ -73,34 +75,36 @@ const WeddingSchedule = () => {
   ];
 
   return (
-    <div className="w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
+    <div className="w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:py-12 md:px-6">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-main mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl">
           Harmonogram Zawodów Weselnych
         </h2>
-        <table className="w-full">
-          <tbody>
-            {scheduleData.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <tr
-                  key={index}
-                  className={index % 2 === 0 ? "bg-rose-100" : "bg-beige/60"}
-                >
-                  <td className="w-8 px-1 py-2 text-center md:w-16 md:px-4 md:py-4">
-                    <Icon className="inline h-6 w-6 text-gray-600 md:h-6 md:w-6" />
-                  </td>
-                  <td className="w-16 whitespace-nowrap px-1 py-2 text-center text-sm font-medium md:w-32 md:px-4 md:py-4 md:text-base">
-                    {item.time}
-                  </td>
-                  <td className="px-1 py-2 text-sm leading-tight md:px-4 md:py-4 md:text-base md:leading-normal">
-                    {item.activity}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <div className="overflow-hidden rounded-xl">
+          <Table>
+          <TableBody className="divide-y divide-gray-300">
+          {scheduleData.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <TableRow
+                    key={index}
+                    className={`${index % 2 === 0 ? "bg-rose-100" : "bg-gold/70"} hover:bg-color-none`}
+                  >
+                    <TableCell className="w-8 px-1 py-2 text-center md:w-16 md:px-4 md:py-4">
+                      <Icon className="inline h-6 w-6 text-gray-600 md:h-6 md:w-6" />
+                    </TableCell>
+                    <TableCell className="w-16 whitespace-nowrap px-1 py-2 text-center text-xs font-medium md:w-32 md:px-4 md:py-4 md:text-base">
+                      {item.time}
+                    </TableCell>
+                    <TableCell className="px-1 py-2 text-xs leading-tight md:px-4 md:py-4 md:text-base md:leading-normal">
+                      {item.activity}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </div>
   );

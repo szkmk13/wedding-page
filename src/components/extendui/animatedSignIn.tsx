@@ -26,9 +26,7 @@ const rideShareSchema = z.object({
     .min(1, { message: "Podaj liczbę dostępnych miejsc" })
     .max(1),
   contact: z.string().min(5, { message: "Podaj dane kontaktowe" }),
-  consent: z.boolean().refine((val) => val === true, {
-    message: "Musisz wyrazić zgodę na kontakt",
-  }),
+
 });
 
 type RideShareValues = z.infer<typeof rideShareSchema>;
@@ -47,14 +45,12 @@ export function RideShare() {
       origin: "",
       passengers: "",
       contact: "",
-      consent: false,
     },
   });
 
   const originValue = watch("origin");
   const passengersValue = watch("passengers");
   const contactValue = watch("contact");
-  const consentValue = watch("consent");
 
   const onSubmit = (data: RideShareValues) => {
     console.log(data);
@@ -65,7 +61,7 @@ export function RideShare() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-gold/60 px-4 py-2 text-gray-800 shadow transition hover:bg-gold/90 sm:w-auto">
+        <Button className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-gold/70 px-4 py-2 text-gray-800 shadow transition hover:bg-beige/60 sm:w-auto">
           <Car className="h-6 w-6" />
           Jadę i mam wolne miejsca
         </Button>
@@ -82,82 +78,43 @@ export function RideShare() {
           className="space-y-4"
           autoComplete="off"
         >
-          <div className="space-y-2">
-            <Input
-              id="origin"
-              type="string"
-              placeholder="Gdańsk"
-              {...register("origin")}
-              value={originValue}
-              onChange={(e) => setValue("origin", e.target.value)}
-            >
-              <Input.Group>
-                <Input.Label>
-                  Skąd jedziesz
-                </Input.Label>
-                <Input.ClearButton onClick={() => setValue("origin", "")} />
-              </Input.Group>
-            </Input>
-          </div>
-          <div className="space-y-2">
-            <Input
-              id="passengers"
-              type="number"
-              placeholder="3"
-              {...register("passengers")}
-              value={passengersValue}
-              onChange={(e) => setValue("passengers", e.target.value)}
-            >
-              <Input.Group>
-                <Input.Label
-                  className={errors.passengers ? "text-red-500" : ""}
-                >
-                  Ile osób możesz wziąć
-                </Input.Label>
-                <Input.ClearButton onClick={() => setValue("passengers", "")} />
-              </Input.Group>
-            </Input>
-          </div>
-          <div className="space-y-2">
-            <Input
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label htmlFor="origin" className={`${errors.contact? "text-red-500":""}`}>Skąd jedziesz</Label>
+              <Input
+                type="string"
+                id="origin"
+                placeholder="Gdańsk"
+                {...register("origin")}
+                value={originValue}
+                onChange={(e) => setValue("origin", e.target.value)}
+              />
+            </div>
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label htmlFor="passengers" className={`${errors.contact? "text-red-500":""}`}> Ile osób możesz wziąć</Label>
+              <Input
+                type="number"
+                id="passengers"
+                placeholder="3"
+                {...register("passengers")}
+                value={passengersValue}
+                onChange={(e) => setValue("passengers", e.target.value)}
+              />
+            </div>
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label htmlFor="contact" className={`${errors.contact? "text-red-500":""}`}> Kontakt do Ciebie</Label>
+              <Input
               id="contact"
               type="string"
               placeholder="123456789 / email@example.com / fb: jan kowalski"
               {...register("contact")}
               value={contactValue}
               onChange={(e) => setValue("contact", e.target.value)}
-            >
-              <Input.Group>
-                <Input.Label className={errors.contact ? "text-red-500" : ""}>
-                  Kontakt do Ciebie
-                </Input.Label>
-                <Input.ClearButton onClick={() => setValue("contact", "")} />
-              </Input.Group>
-            </Input>
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="consent"
-                checked={consentValue}
-                onCheckedChange={(checked) =>
-                  setValue("consent", checked as boolean)
-                }
-                {...register("consent")}
               />
-              <Label
-                htmlFor="consent"
-                className={`text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${
-                  errors.consent ? "text-red-500" : ""
-                }`}
-              >
-                Wyrażam zgodę na kontakt w sprawie przejazdu
-              </Label>
             </div>
-          </div>
+          
           <Button
             type="submit"
-            className="w-full bg-rose-200 text-black hover:bg-none"
+            className="w-full bg-rose-200 text-black hover:bg-color-none hover:shadow-lg"
           >
             Opublikuj przejazd
           </Button>

@@ -5,33 +5,35 @@ import { Button } from "./extendui/button";
 
 export default function SaveTheDate() {
   return (
-    <div>
-
-      <div className="relative z-10 flex  items-center justify-center py-2 lg:px-8 lg:py-6">
-        <div className="w-full max-w-xl">
-          <div className="overflow-hidden rounded-lg bg-white/75 shadow-xl backdrop-blur-sm">
-            <div className="bg-gold/60 px-4 py-6 sm:px-10 sm:py-6">
+    <div className="py-4 sm:py-8">
+      <div className="relative z-10 flex items-center justify-center px-4 lg:px-8 lg:py-6">
+        <div className="mx-auto w-full max-w-3xl">
+          <div className="overflow-hidden rounded-2xl bg-white/80 shadow-xl backdrop-blur-sm">
+            <div className="bg-gold/70 px-6 py-8 sm:px-10">
               <div className="text-center">
                 <h1 className="text-main text-3xl font-extrabold tracking-tight sm:text-5xl">
                   Zapisz datę
                 </h1>
-                <div className="mt-4 flex flex-col items-center justify-center">
-                  <Image
-                    src="/ledon.svg"
-                    alt="Ledon"
-                    width={150}
-                    height={150}
-                    quality={100}
-                    className="inset-0 z-0"
-                  />
-                  <div className="text-main mt-4 flex items-center justify-center gap-3 text-xl font-medium">
+                <div className="mt-6 flex flex-col items-center justify-center">
+                  <div className="relative">
+                    <Image
+                      src="/ledon.svg"
+                      alt="Monogram Wiki i Szymka"
+                      width={180}
+                      height={180}
+                      quality={100}
+                      className="transition-transform duration-300 hover:scale-105"
+                    />
+
+                  </div>
+                  <div className="text-main mt-6 flex items-center justify-center gap-3 text-xl font-medium">
                     <Clock className="h-8 w-8" />
-                    <p>16:00</p>
+                    <p className="text-2xl">16:00</p>
                   </div>
                 </div>
                 <Button
                   variant="outline"
-                  className="text-main hover:bg-main mt-3 border-black/30 bg-rose-100 px-3 py-3 text-lg transition-shadow hover:shadow-lg"
+                  className="text-main mt-6 border-black/30 bg-rose-200/90 px-6 py-3 text-lg font-medium transition-all hover:bg-color-none hover:shadow-lg"
                 >
                   <Link
                     target="_blank"
@@ -45,43 +47,51 @@ export default function SaveTheDate() {
               </div>
             </div>
 
-            <div className="px-4 py-4 sm:px-10 sm:py-10">
+            {/* Dolna sekcja z informacjami */}
+            <div className="px-6 py-8 sm:px-10 sm:py-10">
               <div className="text-center">
-                <h2 className="text-main text-2xl font-bold tracking-tight lg:text-4xl">
+                <h2 className="text-main text-3xl font-bold tracking-tight lg:text-4xl">
                   Wesele Wiki i Szymka
                 </h2>
-                <p className="text-l mx-auto mt-2 max-w-2xl text-gray-700 lg:mt-6 lg:text-xl">
+                <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-700 lg:mt-6 lg:text-xl">
                   Zapraszamy Cię do towarzyszenia nam w tym pięknym dniu, będzie
                   to dla nas bardzo ważne jeżeli przyjdziesz.
                 </p>
               </div>
-              <div className="mt-8 space-y-2 sm:space-y-6">
-                <div className="flex items-center gap-2 rounded-lg bg-beige/70 p-2 transition hover:bg-gold/90 lg:gap-6 lg:p-6">
-                  <Church className="text-main h-8 w-8 flex-shrink-0 lg:h-12 lg:w-12" />
+              
+              <div className="mt-10 space-y-4 sm:space-y-6">
+                <div className="group flex items-center gap-4 rounded-xl bg-gold/70 p-4 shadow-sm transition-all duration-300 hover:bg-beige/60 hover:shadow-md lg:gap-6 lg:p-6">
+                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-white/70 p-3 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
+                    <Church className="text-main h-8 w-8 lg:h-10 lg:w-10" />
+                  </div>
                   <div>
-                    <h3 className="text-main text-xl font-semibold lg:text-xl">
+                    <h3 className="text-main text-xl font-semibold lg:text-2xl">
                       Ceremonia
                     </h3>
                     <Link
                       target="_blank"
                       href="https://maps.app.goo.gl/pxnR21dtu5NY3JMr8"
-                      className="text-m hover:text-main mt-2 block text-gray-700 lg:text-lg"
+                      className="mt-2 block text-lg text-gray-700 transition-colors hover:text-gray-900 lg:text-lg"
                     >
-                      Kościół Rzymskokatolicki pw. Trójcy Przenajświętszej,
+                      Kościół Rzymskokatolicki pw. Trójcy Przenajświętszej
+                      <br />
                       Frednowy 14-204
                     </Link>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 rounded-lg bg-beige/70 p-2 transition hover:bg-gold/90 lg:gap-6 lg:p-6">
-                  <Cake className="text-main h-8 w-8 flex-shrink-0 lg:h-12 lg:w-12" />
+                
+                <div className="group flex items-center gap-4 rounded-xl bg-gold/70 p-4 shadow-sm transition-all duration-300 hover:bg-beige/60 hover:shadow-md lg:gap-6 lg:p-6">
+                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-white/70 p-3 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
+                    <Cake className="text-main h-8 w-8 lg:h-10 lg:w-10" />
+                  </div>
                   <div>
-                    <h3 className="text-main text-xl font-semibold lg:text-xl">
+                    <h3 className="text-main text-xl font-semibold lg:text-2xl">
                       Przyjęcie
                     </h3>
                     <Link
                       target="_blank"
                       href="https://maps.app.goo.gl/HmiEkEYh4WYX5ZNy6"
-                      className="text-m hover:text-main mt-2 block text-gray-700 lg:text-lg"
+                      className="mt-2 block text-lg text-gray-700 transition-colors hover:text-gray-900 lg:text-lg"
                     >
                       Karczma Łabędź Hotel Mazury
                       <br />
