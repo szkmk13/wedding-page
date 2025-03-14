@@ -14,13 +14,13 @@ export function DropdownMenuDemo() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-gold/70 px-4 py-2 text-gray-800 shadow transition hover:bg-beige/60 sm:w-auto">
+        <Button className="flex h-12 w-64 md:w-auto items-center justify-center gap-2 rounded-lg bg-gold/70  text-gray-800 shadow transition hover:bg-beige/60">
           <MapPin className="h-6 w-6" />
           Otwórz w Google Maps
-          <ChevronDown className="h-4 w-4 opacity-70" />
+          <ChevronDown className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 bg-gold/70">
+      <DropdownMenuContent className="bg-gold">
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
             <Link

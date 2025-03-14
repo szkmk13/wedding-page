@@ -61,7 +61,7 @@ export function RideShare() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-gold/70 px-4 py-2 text-gray-800 shadow transition hover:bg-beige/60 sm:w-auto">
+        <Button className="flex h-12  w-64 md:w-auto items-center justify-center gap-2 rounded-lg bg-gold/70 px-4 py-2 text-gray-800 shadow transition hover:bg-beige/60 sm:w-auto">
           <Car className="h-6 w-6" />
           Jadę i mam wolne miejsca
         </Button>

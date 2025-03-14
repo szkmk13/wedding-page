@@ -11,7 +11,7 @@ export default async function Home() {
   return (
       <main className="flex min-h-screen flex-col items-center justify-center">
 
-        <div className="container flex flex-col items-center justify-center gap-8 px-2">        
+        <div className="container flex flex-col items-center justify-center gap-8 md:px-2">        
           {/* <Image
   src="/my2.jpg"
   width={1920}

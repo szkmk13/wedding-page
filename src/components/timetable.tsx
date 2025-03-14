@@ -75,7 +75,7 @@ const WeddingSchedule = () => {
   ];
 
   return (
-    <div className="w-full bg-white/90 px-4 py-8 backdrop-blur-sm sm:py-12 md:px-6">
+    <div className="w-full bg-white/90 px-1 py-8 backdrop-blur-sm sm:py-12 md:px-6">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-main mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl">
           Harmonogram Zawodów Weselnych

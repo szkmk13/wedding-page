@@ -5,10 +5,10 @@ import { Button } from "./extendui/button";
 
 export default function SaveTheDate() {
   return (
-    <div className="py-4 sm:py-8">
-      <div className="relative z-10 flex items-center justify-center px-4 lg:px-8 lg:py-6">
+    <div className="md:py-4 sm:py-8">
+      <div className="relative z-10 flex items-center justify-center md:px-4 lg:px-8 lg:py-6">
         <div className="mx-auto w-full max-w-3xl">
-          <div className="overflow-hidden rounded-2xl bg-white/80 shadow-xl backdrop-blur-sm">
+          <div className="overflow-hidden rounded-2xl bg-white/80 md:shadow-xl backdrop-blur-sm">
             <div className="bg-gold/70 px-6 py-8 sm:px-10">
               <div className="text-center">
                 <h1 className="text-main text-3xl font-extrabold tracking-tight sm:text-5xl">
