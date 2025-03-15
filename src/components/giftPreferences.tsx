@@ -21,9 +21,13 @@ export default function WeddingGifts() {
           {/* Kwiaty → Alkohol */}
           <div className="rounded-lg bg-gold/70 p-4 text-center shadow">
             <div className="mb-4 flex items-center justify-center gap-2">
-              <Flower2Icon size={64} />
-              <ArrowRight size={32} className="text-rose-300" />
-              <Wine size={64} />
+            <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
+            <Flower2Icon size={64} />              </div>
+
+              <ArrowRight size={32} className="text-black" />
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
+              <Wine size={64} />              </div>
+
             </div>
             <p>Zamiast kwiatów — butelka ulubionego trunku.</p>
           </div>
@@ -34,7 +38,7 @@ export default function WeddingGifts() {
               <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
                 <GiftIcon size={64} />
               </div>
-              <ArrowRight size={32} className="text-rose-300" />
+              <ArrowRight size={32} className="text-black" />
               <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
                 <Mail size={64} />
               </div>
@@ -46,8 +50,8 @@ export default function WeddingGifts() {
         {/* Najważniejszy prezent */}
         <div className="mt-6 rounded-lg bg-gold/70 p-4 text-center shadow">
           <div className="mb-4 flex justify-center">
-            <div className="bg-rose/70 rounded-full p-4">
-              <Users size={64} />
+          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-rose-200 p-3 shadow-sm">
+          <Users size={64} />
             </div>
           </div>
           <p className="font-bold italic">

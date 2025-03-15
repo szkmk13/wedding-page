@@ -65,9 +65,9 @@ export default function ContactFooter() {
           {contacts.map((contact, index) => (
             <div
               key={index}
-              className="group relative flex items-center gap-4 rounded-lg bg-gold/60 p-4 transition-all duration-300 hover:bg-gold/70"
+              className="group relative flex items-center gap-4 rounded-lg bg-gold/70 p-4 transition-all duration-300 hover:bg-beige/60"
             >
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-rose-200 transition-all duration-300 group-hover:bg-gold/80">
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-white/70 transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
                 {contact.image ? (
                   <Image
                     src={contact.image}
@@ -75,7 +75,7 @@ export default function ContactFooter() {
                     width={150}
                     height={150}
                     quality={100}
-                    className="rounded-3xl"
+                    className="rounded-full group-hover:shadow-md"
                   />
                 ) : (
                   <span className="text-main text-xl font-bold">
@@ -97,9 +97,9 @@ export default function ContactFooter() {
                   </Link>
                 )}
               </div>
-              <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 group-hover:opacity-100">
+              {/* <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-500 transition-all duration-300 group-hover:opacity-100">
                 <Sparkles className="h-5 w-5 text-rose-400" />
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
