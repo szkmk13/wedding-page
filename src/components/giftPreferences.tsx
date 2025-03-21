@@ -7,6 +7,7 @@ import {
   ArrowRight,
   Users,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function WeddingGifts() {
   return (
@@ -50,8 +51,9 @@ export default function WeddingGifts() {
         {/* Najważniejszy prezent */}
         <div className="mt-6 rounded-lg bg-gold/70 p-4 text-center shadow">
           <div className="mb-4 flex justify-center">
-          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-rose-200 p-3 shadow-sm">
-          <Users size={64} />
+          <div className="flex h-32 w-32 flex-shrink-0 items-center justify-center rounded-full bg-rose-200 p-3 shadow-sm relative">
+          {/* <Users size={64} /> */}
+          <Image src={"/ernest.jpg"} fill alt="Ernest Hemingway" className="object-cover rounded-full" />
             </div>
           </div>
           <p className="font-bold italic">
