@@ -22,12 +22,15 @@ export default function WeddingGifts() {
           {/* Kwiaty → Alkohol */}
           <div className="rounded-lg bg-gold/70 p-4 text-center shadow">
             <div className="mb-4 flex items-center justify-center gap-2">
-            <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
-            <Flower2Icon size={64} />              </div>
+            <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm relative">
+                      <Image src={"/kwiaty.png"} fill alt="asset" className="object-cover rounded-full"/>
+            {/* <Flower2Icon size={64} />               */}
+            </div>
 
               <ArrowRight size={32} className="text-black" />
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
-              <Wine size={64} />              </div>
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm relative">
+              <Image src={"/wino.png"} fill alt="asset" className="object-cover rounded-full"/>
+              </div>
 
             </div>
             <p>Zamiast kwiatów — butelka ulubionego trunku.</p>
@@ -36,12 +39,13 @@ export default function WeddingGifts() {
           {/* Prezent → Koperta */}
           <div className="rounded-lg bg-gold/70 p-4 text-center shadow">
             <div className="mb-4 flex items-center justify-center gap-2">
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
-                <GiftIcon size={64} />
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm relative">
+                      <Image src={"/prezent.png"} fill alt="asset" className="object-cover rounded-full"/>
               </div>
               <ArrowRight size={32} className="text-black" />
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
-                <Mail size={64} />
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm relative">
+                      <Image src={"/koperta.png"} fill alt="asset" className="object-cover rounded-full"/>
+                      {/* <Mail size={64} /> */}
               </div>
             </div>
             <p>Zamiast prezentu — koperta z niespodzianką.</p>
