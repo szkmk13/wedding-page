@@ -45,8 +45,8 @@ export default function OrganizationalInfo() {
 
         <div className="grid gap-4 lg:gap-8 md:grid-cols-2">
           {infoItems.map((item, index) => (
-            <div key={index} className="flex flex-col items-center text-center p-2 lg:p-6 rounded-lg bg-gold/70">
-          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm relative">
+            <div key={index} className="flex flex-col items-center text-center p-2 lg:p-6 rounded-lg bg-[url('/tlo4.png')]">
+          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full  p-3 shadow-sm relative">
           <Image src={item.image} fill alt="asset" className="object-cover rounded-full"/>
                 {/* <item.icon className="h-8 w-8 text-main" /> */}
               </div>

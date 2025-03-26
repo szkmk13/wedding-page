@@ -5,11 +5,12 @@ import { Button } from "./extendui/button";
 
 export default function SaveTheDate() {
   return (
-    <div className="md:py-4 sm:py-8">
+    <div className="sm:py-8 md:py-4">
       <div className="relative z-10 flex items-center justify-center md:px-4 lg:px-8 lg:py-6">
         <div className="mx-auto w-full max-w-3xl">
-          <div className="overflow-hidden md:rounded-2xl bg-white/80 md:shadow-xl backdrop-blur-sm">
-            <div className="bg-gold/70 px-6 py-8 sm:px-10">
+          <div className="overflow-hidden bg-white/80 backdrop-blur-sm md:rounded-2xl md:shadow-xl">
+            <div className="bg-[url('/tlo.png')] bg-cover bg-center bg-no-repeat px-6 py-8 sm:px-10">
+              {" "}
               <div className="text-center">
                 <h1 className="text-main text-3xl font-extrabold tracking-tight sm:text-5xl">
                   Zapisz datę
@@ -24,7 +25,6 @@ export default function SaveTheDate() {
                       quality={100}
                       className="transition-transform duration-300 hover:scale-105"
                     />
-
                   </div>
                   <div className="text-main mt-6 flex items-center justify-center gap-3 text-xl font-medium">
                     <Clock className="h-8 w-8" />
@@ -33,7 +33,7 @@ export default function SaveTheDate() {
                 </div>
                 <Button
                   variant="outline"
-                  className="text-main mt-6 border-black/30 bg-rose-200/90 px-6 py-3 text-lg font-medium transition-all hover:bg-color-none hover:shadow-lg"
+                  className="text-main hover:bg-color-none mt-6 border-[4px] border-yellow-400/30 bg-neutral-50 px-6 py-3 text-lg font-medium shadow-inner transition-all hover:shadow-lg"
                 >
                   <Link
                     target="_blank"
@@ -58,11 +58,17 @@ export default function SaveTheDate() {
                   to dla nas bardzo ważne jeżeli przyjdziesz.
                 </p>
               </div>
-              
+
               <div className="mt-10 space-y-4 sm:space-y-6">
-                <div className="group flex items-center gap-4 rounded-xl bg-gold/70 p-4 shadow-sm transition-all duration-300 hover:bg-beige/60 hover:shadow-md lg:gap-6 lg:p-6">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-white/70 p-3 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
-                    <Church className="text-main h-8 w-8 lg:h-10 lg:w-10" />
+                <div className="group flex items-center gap-4 rounded-xl bg-[url('/tlo.png')] p-4 shadow-sm transition-all duration-300 hover:bg-beige/60 hover:shadow-md lg:gap-6 lg:p-6">
+                  <div className="relative flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full p-3 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
+                    {/* <Church className="text-main h-8 w-8 lg:h-10 lg:w-10" /> */}
+                    <Image
+                      src={"/kosciol.png"}
+                      fill
+                      alt="asset"
+                      className="rounded-full object-cover"
+                    />
                   </div>
                   <div>
                     <h3 className="text-main text-xl font-semibold lg:text-2xl">
@@ -79,10 +85,16 @@ export default function SaveTheDate() {
                     </Link>
                   </div>
                 </div>
-                
-                <div className="group flex items-center gap-4 rounded-xl bg-gold/70 p-4 shadow-sm transition-all duration-300 hover:bg-beige/60 hover:shadow-md lg:gap-6 lg:p-6">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-white/70 p-3 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
-                    <Cake className="text-main h-8 w-8 lg:h-10 lg:w-10" />
+
+                <div className="group relative flex items-center gap-4 overflow-hidden rounded-xl p-4 shadow-sm transition-all duration-300 hover:shadow-md lg:gap-6 lg:p-6">
+                  <div className="absolute inset-0 -z-10 rotate-180 bg-[url('/tlo.png')]"></div>
+                  <div className="relative flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full p-3 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
+                    <Image
+                      src="/ciasto.png"
+                      alt="asset"
+                      fill
+                      className="rounded-full object-cover"
+                    />
                   </div>
                   <div>
                     <h3 className="text-main text-xl font-semibold lg:text-2xl">

@@ -14,13 +14,14 @@ import {
 } from "lucide-react";
 
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import Image from "next/image";
 
 const WeddingSchedule = () => {
   const scheduleData = [
     {
       icon: Flag,
       time: "10:00-15:00",
-      activity: "Otwarcie strefy zmian (zamledowanie w miejscu noclegowym)",
+      activity: "Otwarcie strefy zmian (zameldowanie w miejscu noclegowym)",
     },
     {
       icon: Church,
@@ -80,7 +81,14 @@ const WeddingSchedule = () => {
         <h2 className="text-main mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl">
           Harmonogram Zawodów Weselnych
         </h2>
-        <div className="overflow-hidden rounded-xl">
+        <Image
+          src="/roadmapa.png"
+          alt="asset"
+          width={768}
+          height={1376}
+          className="rounded-md"
+        />
+        {/* <div className="overflow-hidden rounded-xl">
           <Table>
           <TableBody className="divide-y divide-gray-300">
           {scheduleData.map((item, index) => {
@@ -104,7 +112,7 @@ const WeddingSchedule = () => {
               })}
             </TableBody>
           </Table>
-        </div>
+        </div> */}
       </div>
     </div>
   );

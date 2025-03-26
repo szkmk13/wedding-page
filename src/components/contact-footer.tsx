@@ -38,10 +38,8 @@ export default function ContactFooter() {
   ];
 
   return (
-    // <div className="overflow-hidden rounded-lg bg-white/75 shadow-xl backdrop-blur-sm w-full">
     <div className="relative w-full overflow-hidden bg-white/90 px-8 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
-      {/* Decorative elements */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      {/* <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute right-1 top-1/4 rotate-12 transform opacity-60">
           <Sparkles className="text-rose h-24 w-24 animate-pulse" />
         </div>
@@ -54,7 +52,7 @@ export default function ContactFooter() {
         <div className="absolute bottom-64 left-1/3 rotate-45 transform opacity-60">
           <Sparkles className="text-rose h-20 w-20 animate-pulse" />
         </div>
-      </div>
+      </div> */}
 
       <div className="relative mx-auto max-w-3xl">
         <h2 className="text-main mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl">
@@ -65,9 +63,9 @@ export default function ContactFooter() {
           {contacts.map((contact, index) => (
             <div
               key={index}
-              className="group relative flex items-center gap-4 rounded-lg bg-gold/70 p-4 transition-all duration-300 hover:bg-beige/60"
+              className="group relative flex items-center gap-4 rounded-lg bg-[url('/tlo5.png')] p-4 transition-all duration-300 hover:bg-beige/60"
             >
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-white/70 transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-[#f9ecdc] transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
                 {contact.image ? (
                   <Image
                     src={contact.image}
@@ -114,6 +112,6 @@ export default function ContactFooter() {
         />
       </div>
     </div>
-    // </div> 
+    // </div>
   );
 }

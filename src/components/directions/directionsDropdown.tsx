@@ -14,13 +14,13 @@ export function DropdownMenuDemo() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="flex h-12 w-64 md:w-auto items-center justify-center gap-2 rounded-lg bg-gold/70  text-gray-800 shadow transition hover:bg-beige/60">
+        <Button className="flex h-12 w-64 items-center justify-center gap-2 rounded-lg bg-[url('/tlo2.png')] text-gray-800 shadow transition hover:bg-beige/60 md:w-auto">
           <MapPin className="h-6 w-6" />
           Otwórz w Google Maps
           <ChevronDown className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-gold">
+      <DropdownMenuContent className="bg-[url('/tlo2.png')]">
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
             <Link
