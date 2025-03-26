@@ -4,7 +4,6 @@ import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createClient } from "@supabase/supabase-js";
 
 import {
   Dialog,
@@ -18,20 +17,14 @@ import { Car } from "lucide-react";
 import { Button } from "@/components/extendui/button";
 import { Input } from "@/components/extendui/input";
 import { Label } from "@/components/ui/label";
+import supabase from "@/app/api/supabase";
 
-// 🔥 Połączenie z Supabase
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
-
-// 🎯 Schemat walidacji
 const rideShareSchema = z.object({
   origin: z.string().min(2, { message: "Podaj miejsce wyjazdu" }),
   passengers: z
     .string()
     .min(1, { message: "Podaj liczbę miejsc" })
-    .max(1, { message: "Liczba miejsc nie może być większa niż 9" }), // Walidacja: liczba nie większa niż 9
+    .max(1, { message: "Liczba miejsc nie może być większa niż 9" }), 
 
   contact: z.string().min(5, { message: "Podaj dane kontaktowe" }),
 });
@@ -58,13 +51,11 @@ export function RideShare() {
 
   const onSubmit = async (data: RideShareValues) => {
     console.log("Wysyłanie danych do Supabase:", data);
-    const { error } = await supabase.from("rides").insert(
-      {
-        origin: data.origin,
-        passengers: parseInt(data.passengers), // Konwersja na liczbę
-        contact: data.contact,
-      },
-    );
+    const { error } = await supabase.from("rides").insert({
+      origin: data.origin,
+      passengers: parseInt(data.passengers), // Konwersja na liczbę
+      contact: data.contact,
+    });
     if (error) {
       console.error("Błąd przy dodawaniu przejazdu:", error);
       return;
@@ -95,12 +86,10 @@ export function RideShare() {
         >
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="origin">Skąd jedziesz</Label>
-            <Input
-              id="origin"
-              placeholder="Gdańsk"
-              {...register("origin")}
-            />
-            {errors.origin && <p className="text-red-500">{errors.origin.message}</p>}
+            <Input id="origin" placeholder="Gdańsk" {...register("origin")} />
+            {errors.origin && (
+              <p className="text-red-500">{errors.origin.message}</p>
+            )}
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="passengers">Ile osób możesz zabrać</Label>
@@ -110,7 +99,9 @@ export function RideShare() {
               placeholder="3"
               {...register("passengers")}
             />
-            {errors.passengers && <p className="text-red-500">{errors.passengers.message}</p>}
+            {errors.passengers && (
+              <p className="text-red-500">{errors.passengers.message}</p>
+            )}
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="contact">Kontakt</Label>
@@ -119,7 +110,9 @@ export function RideShare() {
               placeholder="123456789 / email@example.com"
               {...register("contact")}
             />
-            {errors.contact && <p className="text-red-500">{errors.contact.message}</p>}
+            {errors.contact && (
+              <p className="text-red-500">{errors.contact.message}</p>
+            )}
           </div>
 
           <Button

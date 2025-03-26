@@ -1,4 +1,4 @@
-import { Phone, Sparkles } from "lucide-react";
+import { Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -38,22 +38,7 @@ export default function ContactFooter() {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden  px-8 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
-      {/* <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute right-1 top-1/4 rotate-12 transform opacity-60">
-          <Sparkles className="text-rose h-24 w-24 animate-pulse" />
-        </div>
-        <div className="absolute bottom-1/4 left-4 -rotate-12 transform opacity-60">
-          <Sparkles className="text-rose h-16 w-16 animate-pulse" />
-        </div>
-        <div className="absolute bottom-8 right-1/4 rotate-45 transform opacity-60">
-          <Sparkles className="text-rose h-20 w-20 animate-pulse" />
-        </div>
-        <div className="absolute bottom-64 left-1/3 rotate-45 transform opacity-60">
-          <Sparkles className="text-rose h-20 w-20 animate-pulse" />
-        </div>
-      </div> */}
-
+    <div className="relative w-full overflow-hidden px-8 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
       <div className="relative mx-auto max-w-3xl">
         <h2 className="text-main mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl">
           Kontakt w razie pytań
@@ -95,9 +80,6 @@ export default function ContactFooter() {
                   </Link>
                 )}
               </div>
-              {/* <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-500 transition-all duration-300 group-hover:opacity-100">
-                <Sparkles className="h-5 w-5 text-rose-400" />
-              </div> */}
             </div>
           ))}
         </div>
@@ -112,6 +94,5 @@ export default function ContactFooter() {
         />
       </div>
     </div>
-    // </div>
   );
 }

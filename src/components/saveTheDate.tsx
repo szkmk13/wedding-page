@@ -1,4 +1,4 @@
-import { Calendar, Church, Cake, Clock } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./extendui/button";
@@ -48,7 +48,7 @@ export default function SaveTheDate() {
             </div>
 
             {/* Dolna sekcja z informacjami */}
-            <div className="px-6 py-8 sm:px-10 sm:py-10 bg-[#f9ecdc]/30">
+            <div className="bg-[#f9ecdc]/30 px-6 py-8 sm:px-10 sm:py-10">
               <div className="text-center">
                 <h2 className="text-main text-3xl font-bold tracking-tight lg:text-4xl">
                   Wesele Wiki i Szymka
@@ -67,6 +67,7 @@ export default function SaveTheDate() {
                       src={"/kosciol.png"}
                       fill
                       alt="asset"
+                      sizes="24px"
                       className="rounded-full object-cover"
                     />
                   </div>
@@ -93,6 +94,7 @@ export default function SaveTheDate() {
                       src="/ciasto.png"
                       alt="asset"
                       fill
+                      sizes="24px"
                       className="rounded-full object-cover"
                     />
                   </div>

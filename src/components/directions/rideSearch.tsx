@@ -1,45 +1,44 @@
 "use client";
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Users } from "lucide-react";
 import { Button } from "@/components/extendui/button";
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
+import supabase from "@/app/api/supabase";
 
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
 type Ride = {
   id: number;
   origin: string;
   contact: string;
   passengers: number;
-  contact: string;
 };
 
 export function RideSearch() {
   const [isOpen, setIsOpen] = useState(false);
-  const [rides, setRides] = useState<Ride[]>([]); // Zmienna do przechowywania dostępnych przejazdów
+  const [rides, setRides] = useState<Ride[]>([]); 
 
-  // Fetch available rides when the dialog is opened
   useEffect(() => {
     if (isOpen) {
-      // Pobierz dostępne przejazdy z tabeli "rides"
       const fetchRides = async () => {
         const { data, error } = await supabase
-          .from("rides") // Upewnij się, że masz tabelę "rides" w Supabase
-          .select("*")
+          .from("rides") 
+          .select("*");
 
         if (error) {
           console.error("Error fetching rides:", error.message);
         } else {
-          setRides(data as Ride[]); // Typowanie danych
+          setRides(data as Ride[]);
         }
       };
 
-      fetchRides();
+      void fetchRides();
     }
   }, [isOpen]);
 
@@ -51,40 +50,39 @@ export function RideSearch() {
           Szukam z kim mogę pojechać
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="max-w-[425px] max-h-full md:max-w-2xl md:max-h-[500px]">
         <DialogTitle>Lista gości którzy mają miejsca</DialogTitle>
-        <DialogHeader>
-          <DialogDescription className="text-center">
+        {/* <DialogHeader> */}
+          {/* <DialogDescription className="text-center"></DialogDescription> */}
+        {/* </DialogHeader> */}
 
-          </DialogDescription>
-        </DialogHeader>
+        <div className="max-h-[500px] md:max-h-[400px] space-y-2 overflow-y-auto">
 
-        {/* Lista dostępnych przejazdów */}
-        <div className="space-y-4">
-  {rides.length > 0 ? (
-    rides.map((ride) => (
-      <div
-        key={ride.id}
-        className="flex justify-between items-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-      >
-        <div className="flex flex-col space-y-1">
-          <span className="text-lg font-semibold text-gray-900">Podróż z {ride.origin}</span>
-          <span className="text-sm text-gray-500">{ride.contact}</span>
+          {rides.length > 0 ? (
+            rides.map((ride) => (
+              <div
+                key={ride.id}
+                className="flex items-center justify-between rounded-lg bg-[url('/kartka.png')] p-4 shadow-lg transition-all duration-300 hover:shadow-xl"
+              >
+                <div className="flex flex-col space-y-1 w-auto">
+                  <span className="text-lg font-semibold text-gray-900">
+                    Podróż z {ride.origin}
+                  </span>
+                  <span className="text-sm text-gray-500">{ride.contact}</span>
+                </div>
+                <div className="flex w-[115px] items-center justify-end">
+                  <span className="w-36 text-right text-sm font-medium text-gray-700">
+                    Wolne miejsca: <b>{ride.passengers}</b>
+                  </span>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-center text-gray-500">
+              Brak dostępnych przejazdów
+            </p>
+          )}
         </div>
-        <div className="flex items-center justify-end w-full">
-          {/* Wolne miejsca - stała szerokość */}
-          <span className="text-sm font-medium text-gray-700 w-36 text-right">
-            Wolne miejsca: {ride.passengers}
-          </span>
-        </div>
-      </div>
-    ))
-  ) : (
-    <p className="text-center text-gray-500">Brak dostępnych przejazdów</p>
-  )}
-</div>
-
-
       </DialogContent>
     </Dialog>
   );
