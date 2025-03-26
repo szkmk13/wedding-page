@@ -1,5 +1,11 @@
 "use client";
 
+import { useState } from "react";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { createClient } from "@supabase/supabase-js";
+
 import {
   Dialog,
   DialogContent,
@@ -9,25 +15,29 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Car } from "lucide-react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-
 import { Button } from "@/components/extendui/button";
 import { Input } from "@/components/extendui/input";
 import { Label } from "@/components/ui/label";
-import { z } from "zod";
-import { useState } from "react";
 
+// 🔥 Połączenie z Supabase
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+// 🎯 Schemat walidacji
 const rideShareSchema = z.object({
   origin: z.string().min(2, { message: "Podaj miejsce wyjazdu" }),
   passengers: z
     .string()
-    .min(1, { message: "Podaj liczbę dostępnych miejsc" })
-    .max(1),
+    .min(1, { message: "Podaj liczbę miejsc" })
+    .max(1, { message: "Liczba miejsc nie może być większa niż 9" }), // Walidacja: liczba nie większa niż 9
+
   contact: z.string().min(5, { message: "Podaj dane kontaktowe" }),
 });
 
 type RideShareValues = z.infer<typeof rideShareSchema>;
+
 export function RideShare() {
   const [isOpen, setIsOpen] = useState(false);
   const {
@@ -46,16 +56,23 @@ export function RideShare() {
     },
   });
 
-  const originValue = watch("origin");
-  const passengersValue = watch("passengers");
-  const contactValue = watch("contact");
-
-  const onSubmit = (data: RideShareValues) => {
-    console.log(data);
-    // toast.success(<pre>{JSON.stringify(data, null, 2)}</pre>);
+  const onSubmit = async (data: RideShareValues) => {
+    console.log("Wysyłanie danych do Supabase:", data);
+    const { error } = await supabase.from("rides").insert(
+      {
+        origin: data.origin,
+        passengers: parseInt(data.passengers), // Konwersja na liczbę
+        contact: data.contact,
+      },
+    );
+    if (error) {
+      console.error("Błąd przy dodawaniu przejazdu:", error);
+      return;
+    }
     reset();
     setIsOpen(false);
   };
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
@@ -65,8 +82,8 @@ export function RideShare() {
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <DialogTitle></DialogTitle>
         <DialogHeader>
+          <DialogTitle>Udostępnij przejazd</DialogTitle>
           <DialogDescription className="text-center">
             Wypełnij formularz, aby inni goście mogli się z Tobą skontaktować.
           </DialogDescription>
@@ -77,54 +94,32 @@ export function RideShare() {
           autoComplete="off"
         >
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label
-              htmlFor="origin"
-              className={`${errors.contact ? "text-red-500" : ""}`}
-            >
-              Skąd jedziesz
-            </Label>
+            <Label htmlFor="origin">Skąd jedziesz</Label>
             <Input
-              type="string"
               id="origin"
               placeholder="Gdańsk"
               {...register("origin")}
-              value={originValue}
-              onChange={(e) => setValue("origin", e.target.value)}
             />
+            {errors.origin && <p className="text-red-500">{errors.origin.message}</p>}
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label
-              htmlFor="passengers"
-              className={`${errors.contact ? "text-red-500" : ""}`}
-            >
-              {" "}
-              Ile osób możesz wziąć
-            </Label>
+            <Label htmlFor="passengers">Ile osób możesz zabrać</Label>
             <Input
-              type="number"
               id="passengers"
+              type="number"
               placeholder="3"
               {...register("passengers")}
-              value={passengersValue}
-              onChange={(e) => setValue("passengers", e.target.value)}
             />
+            {errors.passengers && <p className="text-red-500">{errors.passengers.message}</p>}
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label
-              htmlFor="contact"
-              className={`${errors.contact ? "text-red-500" : ""}`}
-            >
-              {" "}
-              Kontakt do Ciebie
-            </Label>
+            <Label htmlFor="contact">Kontakt</Label>
             <Input
               id="contact"
-              type="string"
-              placeholder="123456789 / email@example.com / fb: jan kowalski"
+              placeholder="123456789 / email@example.com"
               {...register("contact")}
-              value={contactValue}
-              onChange={(e) => setValue("contact", e.target.value)}
             />
+            {errors.contact && <p className="text-red-500">{errors.contact.message}</p>}
           </div>
 
           <Button

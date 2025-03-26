@@ -7,7 +7,7 @@ import { RideSearch } from "./directions/rideSearch";
 
 export default function DirectionsMap() {
   return (
-    <div className="w-full bg-white/90 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
+    <div className="w-full  py-8 backdrop-blur-sm sm:px-6 sm:py-12">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-main mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl">
           Jak dojechać?

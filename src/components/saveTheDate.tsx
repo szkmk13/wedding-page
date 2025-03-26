@@ -48,7 +48,7 @@ export default function SaveTheDate() {
             </div>
 
             {/* Dolna sekcja z informacjami */}
-            <div className="px-6 py-8 sm:px-10 sm:py-10">
+            <div className="px-6 py-8 sm:px-10 sm:py-10 bg-[#f9ecdc]/30">
               <div className="text-center">
                 <h2 className="text-main text-3xl font-bold tracking-tight lg:text-4xl">
                   Wesele Wiki i Szymka

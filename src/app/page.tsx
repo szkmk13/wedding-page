@@ -12,10 +12,11 @@ export default async function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center">
 
         <div className="container flex flex-col items-center justify-center gap-8 md:px-2">        
+        <div className="fixed inset-0 -z-10 bg-[url('/kartka.png')] bg-cover bg-center bg-no-repeat bg-fixed" />
+
           {/* <Image
-  src="/my2.jpg"
-  width={1920}
-  height={1080}
+  src="/kartka.png"
+  fill
   alt="Tło weselne"
   quality={100}
   className="fixed inset-0 object-cover w-full h-full -z-10 "

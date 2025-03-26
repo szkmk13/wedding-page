@@ -38,7 +38,7 @@ export default function ContactFooter() {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden bg-white/90 px-8 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
+    <div className="relative w-full overflow-hidden  px-8 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
       {/* <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute right-1 top-1/4 rotate-12 transform opacity-60">
           <Sparkles className="text-rose h-24 w-24 animate-pulse" />
