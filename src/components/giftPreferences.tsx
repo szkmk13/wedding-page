@@ -11,23 +11,23 @@ export default function WeddingGifts() {
         </h2>
         <div className="rounded-lg bg-[url('/tlo5.png')] p-4 text-center shadow">
           <div className="mb-4 flex items-center justify-center gap-2">
-            <div className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
+            <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full  shadow-sm">
               <Image
                 src={"/prezent.png"}
-                fill
-                alt="asset"
-                sizes="16px"
-                className="rounded-full object-cover"
+                alt="prezent"
+                width={1000}
+                height={1000}
+                className="rounded-full object-fill"
               />
             </div>
             <ArrowRight size={32} className="text-black" />
-            <div className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-beige/60 p-3 shadow-sm">
+            <div className=" flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full shadow-sm">
               <Image
                 src={"/koperta.png"}
-                fill
-                alt="asset"
-                sizes="16px"
-                className="rounded-full object-cover"
+                alt="koperta.png"
+                width={1000}
+                height={1000}
+                className="rounded-full object-fill"
               />
             </div>
           </div>
@@ -39,13 +39,13 @@ export default function WeddingGifts() {
 
         <div className="mt-6 rounded-lg bg-[url('/tlo2.png')] p-4 text-center shadow">
           <div className="mb-4 flex justify-center">
-            <div className="relative flex h-32 w-32 flex-shrink-0 items-center justify-center rounded-full bg-rose-200 p-3 shadow-sm">
+            <div className=" flex h-32 w-32 flex-shrink-0 items-center justify-center rounded-full shadow-sm">
               <Image
                 src={"/ernest2.png"}
-                fill
                 alt="Ernest Hemingway"
-                sizes="32px"
-                className="rounded-full object-cover"
+                width={1000}
+                height={1000}
+                className="rounded-full object-fill"
               />
             </div>
           </div>

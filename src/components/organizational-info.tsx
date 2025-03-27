@@ -47,13 +47,13 @@ export default function OrganizationalInfo() {
               key={index}
               className="flex flex-col items-center rounded-lg bg-[url('/tlo4.png')] p-2 text-center lg:p-6"
             >
-              <div className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full p-3 shadow-sm">
+              <div className=" flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full shadow-sm">
                 <Image
                   src={item.image}
-                  fill
                   alt="asset"
-                  sizes="16px"
-                  className="rounded-full object-cover"
+                  width={1000}
+                  height={1000}
+                  className="rounded-full object-fill"
                 />
               </div>
               <h3 className="text-main mb-2 text-xl font-semibold">

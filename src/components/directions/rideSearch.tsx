@@ -56,15 +56,15 @@ export function RideSearch() {
           {/* <DialogDescription className="text-center"></DialogDescription> */}
         {/* </DialogHeader> */}
 
-        <div className="max-h-[500px] md:max-h-[400px] space-y-2 overflow-y-auto">
+        <div className="max-h-[500px] md:max-h-[400px] space-y-4 overflow-y-auto">
 
           {rides.length > 0 ? (
             rides.map((ride) => (
               <div
                 key={ride.id}
-                className="flex items-center justify-between rounded-lg bg-[url('/kartka.png')] p-4 shadow-lg transition-all duration-300 hover:shadow-xl"
+                className="flex items-center justify-between rounded-lg bg-[#f9ecdc]/30 p-4 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
-                <div className="flex flex-col space-y-1 w-auto">
+                <div className="flex flex-col space-y-2 w-auto">
                   <span className="text-lg font-semibold text-gray-900">
                     Podróż z {ride.origin}
                   </span>

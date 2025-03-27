@@ -16,7 +16,6 @@ export default function SaveTheDate() {
                   Zapisz datę
                 </h1>
                 <div className="mt-6 flex flex-col items-center justify-center">
-                  <div className="relative">
                     <Image
                       src="/ledon.svg"
                       alt="Monogram Wiki i Szymka"
@@ -25,7 +24,6 @@ export default function SaveTheDate() {
                       quality={100}
                       className="transition-transform duration-300 hover:scale-105"
                     />
-                  </div>
                   <div className="text-main mt-6 flex items-center justify-center gap-3 text-xl font-medium">
                     <Clock className="h-8 w-8" />
                     <p className="text-2xl">16:00</p>
@@ -47,7 +45,6 @@ export default function SaveTheDate() {
               </div>
             </div>
 
-            {/* Dolna sekcja z informacjami */}
             <div className="bg-[#f9ecdc]/30 px-6 py-8 sm:px-10 sm:py-10">
               <div className="text-center">
                 <h2 className="text-main text-3xl font-bold tracking-tight lg:text-4xl">
@@ -61,14 +58,13 @@ export default function SaveTheDate() {
 
               <div className="mt-10 space-y-4 sm:space-y-6">
                 <div className="group flex items-center gap-4 rounded-xl bg-[url('/tlo.png')] p-4 shadow-sm transition-all duration-300 hover:bg-beige/60 hover:shadow-md lg:gap-6 lg:p-6">
-                  <div className="relative flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full p-3 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
-                    {/* <Church className="text-main h-8 w-8 lg:h-10 lg:w-10" /> */}
+                  <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
                     <Image
                       src={"/kosciol.png"}
-                      fill
-                      alt="asset"
-                      sizes="24px"
-                      className="rounded-full object-cover"
+                      alt="kosciol.png"
+                      width={1000}
+                      height={1000}
+                      className="rounded-full object-fill"
                     />
                   </div>
                   <div>
@@ -89,13 +85,13 @@ export default function SaveTheDate() {
 
                 <div className="group relative flex items-center gap-4 overflow-hidden rounded-xl p-4 shadow-sm transition-all duration-300 hover:shadow-md lg:gap-6 lg:p-6">
                   <div className="absolute inset-0 -z-10 rotate-180 bg-[url('/tlo.png')]"></div>
-                  <div className="relative flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full p-3 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
+                  <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:shadow-md">
                     <Image
                       src="/ciasto.png"
-                      alt="asset"
-                      fill
-                      sizes="24px"
-                      className="rounded-full object-cover"
+                      alt="ciasto.png"
+                      width={1000}
+                      height={1000}
+                      className="rounded-full object-fill"
                     />
                   </div>
                   <div>

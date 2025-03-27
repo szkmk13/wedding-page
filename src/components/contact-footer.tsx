@@ -91,6 +91,7 @@ export default function ContactFooter() {
           width={150}
           height={150}
           quality={100}
+          className="mb-5"
         />
       </div>
     </div>

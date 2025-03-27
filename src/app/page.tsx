@@ -13,14 +13,6 @@ export default async function Home() {
 
         <div className="container flex flex-col items-center justify-center gap-8 md:px-2">        
         <div className="fixed inset-0 -z-10 bg-[url('/kartka.png')] bg-cover bg-center bg-no-repeat bg-fixed" />
-
-          {/* <Image
-  src="/kartka.png"
-  fill
-  alt="Tło weselne"
-  quality={100}
-  className="fixed inset-0 object-cover w-full h-full -z-10 "
-/> */}
           <SaveTheDate />
           <WeddingSchedule />
           <DirectionsMap/>
