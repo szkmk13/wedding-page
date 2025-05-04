@@ -12,8 +12,8 @@ export default function SaveTheDate() {
           <div className="bg-[url('/tlo.png')] bg-cover bg-center bg-no-repeat px-6 py-8 sm:px-10">
             {" "}
             <div className="text-center">
-              <h1 className="text-main font-allura font-semibold text-3xl sm:text-5xl tracking-wider">
-                Zapisz   datę
+              <h1 className="text-main font-allura text-3xl font-semibold tracking-wider sm:text-5xl">
+                Zapisz datę
               </h1>
               <div className="mt-6 flex flex-col items-center justify-center">
                 <Image
@@ -26,7 +26,7 @@ export default function SaveTheDate() {
                 />
                 <div className="text-main mt-6 flex items-center justify-center gap-3 text-xl font-medium">
                   <Clock className="h-8 w-8" />
-                  <p className="text-2xl font-dancing font-bold">16:00</p>
+                  <p className="font-dancing text-2xl font-bold">16:00</p>
                 </div>
               </div>
               <Button

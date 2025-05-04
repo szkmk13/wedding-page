@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 
 const WeddingSchedule = () => {
-
   return (
     <div className="w-full py-8 backdrop-blur-sm sm:py-12 md:px-6">
       <div className="mx-auto max-w-3xl">

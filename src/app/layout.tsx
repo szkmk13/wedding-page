@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 import { GeistSans } from "geist/font/sans";
-import { Allura,Cormorant_Garamond,Dancing_Script   } from "next/font/google";
+import { Allura, Cormorant_Garamond, Dancing_Script } from "next/font/google";
 import { type Metadata } from "next";
 
 const allura = Allura({
@@ -29,10 +29,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${allura.variable} ${cormorant.variable} ${dancingScript.variable}`}>
-      <body>
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${allura.variable} ${cormorant.variable} ${dancingScript.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }

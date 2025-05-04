@@ -11,7 +11,7 @@ const infoItems = [
     image: "/parking.png",
     title: "Parking",
     description:
-    "Przy sali weselnej dostępny będzie parking dla gości. Prosimy o parkowanie w wyznaczonych miejscach.",
+      "Przy sali weselnej dostępny będzie parking dla gości. Prosimy o parkowanie w wyznaczonych miejscach.",
   },
   {
     image: "/alkomat.png",
@@ -42,7 +42,7 @@ export default function OrganizationalInfo() {
               key={index}
               className="flex flex-col items-center rounded-lg bg-[url('/tlo4.png')] p-2 text-center lg:p-6"
             >
-              <div className=" flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full shadow-sm">
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full shadow-sm">
                 <Image
                   src={item.image}
                   alt="asset"
