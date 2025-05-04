@@ -8,9 +8,15 @@ export default {
   	extend: {
   		fontFamily: {
   			sans: [
-  				'var(--font-geist-sans)',
+  				"var(--font-cormorant)",
                     ...fontFamily.sans
-                ]
+                ],
+				allura: ["var(--font-allura)", "cursive"],
+				cormorant: ["var(--font-cormorant)"],
+				dancing: ["var(--font-dancing-script)", "cursive"],
+
+
+
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

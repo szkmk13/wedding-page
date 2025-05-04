@@ -1,23 +1,19 @@
-import { Car, Hotel, Wine, TestTube } from "lucide-react";
 import Image from "next/image";
 
 const infoItems = [
   {
-    icon: Car,
     image: "/auto.png",
     title: "Transport",
     description:
       "Dojazd z kościoła na salę weselną we własnym zakresie. Zachęcamy do wspólnych przejazdów z innymi gośćmi.",
   },
   {
-    icon: Hotel,
-    image: "/hotel.png",
-    title: "Nocleg",
+    image: "/parking.png",
+    title: "Parking",
     description:
-      "Dla gości przyjeżdżających spoza Iławy zapewniamy nocleg. Szczegółowe informacje przekażemy indywidualnie.",
+    "Przy sali weselnej dostępny będzie parking dla gości. Prosimy o parkowanie w wyznaczonych miejscach.",
   },
   {
-    icon: TestTube,
     image: "/alkomat.png",
     title: "Alkomat",
     description:
@@ -25,7 +21,6 @@ const infoItems = [
   },
 
   {
-    icon: Wine,
     image: "/alkohol.png",
     title: "Poprawiny",
     description:

@@ -14,32 +14,20 @@ export default function ContactFooter() {
     {
       role: "Panna młoda",
       name: "Wiktoria Kwiatkowska",
-      contact: "XXX XXX XXX",
+      contact: "795 936 890",
       image: null,
     },
     {
       role: "Pan młody",
       name: "Szymon Kowalski",
-      contact: "XXX XXX XXX",
+      contact: "504 991 254",
       image: null,
-    },
-    {
-      role: "Świadkowa",
-      name: "Marta Muża",
-      contact: null,
-      image: null,
-    },
-    {
-      role: "Świadek",
-      name: "Karol Rynkowski",
-      contact: null,
-      image: "/karol.png",
     },
   ];
 
   return (
-    <div className="relative w-full overflow-hidden px-8 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
-      <div className="relative mx-auto max-w-3xl">
+    <div className="w-full px-8 py-8 backdrop-blur-sm sm:px-6 sm:py-12">
+      <div className="mx-auto max-w-3xl">
         <h2 className="text-main mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl">
           Kontakt w razie pytań
         </h2>
